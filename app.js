@@ -7,15 +7,6 @@ require('dotenv').config();
 
 mongoose.connect(process.env.DATABASE_STRING, {
   useNewUrlParser: true,
-  // useUnifiedTopology: true
-});
-
-mongoose.connection.on('error', function(error) {
-  console.error('Database connection error:', error);
-});
-
-mongoose.connection.once('open', function() {
-  console.log('Database connected');
 });
 
 // Model Config

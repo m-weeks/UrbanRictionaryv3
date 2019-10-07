@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ErrorMessage = ({ error }) => {
-  console.log(error);
   if (!error) {
     return null;
   }
