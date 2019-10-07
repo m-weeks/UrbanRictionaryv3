@@ -1,0 +1,59 @@
+.wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.spinner, .spinner div {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+}
+
+.spinner img {
+  height: 120px;
+  width: 120px;
+}
+
+.face1 { transform: rotateY(180deg) translateZ(60px);                                }
+.face2 { transform: rotateY(90deg) translateZ(60px);                 }
+.face3 { transform: rotateY(0deg) translateZ(60px);                }
+.face4 { transform: rotateY(-90deg) translateZ(60px);                }
+
+@keyframes spincube {
+  0%       { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100%     { transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg); }
+}
+
+.spinner:hover {
+  animation-name: spincube;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  transform-style: preserve-3d;
+  transform-origin: 60px 60px 0;
+}
+
+.header {
+  position: relative;
+}
+
+@keyframes flashtext {
+  0% { font-size: 0.8em; }
+  100% { font-size: 1em; }
+}
+
+.flashText {
+  position: absolute;
+  right: -30px;
+  top: -15px;
+  color: yellow;
+  transform: rotateZ(30deg);
+
+  animation-name: flashtext;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  transform-style: preserve-3d;
+  animation-direction: alternate;
+}

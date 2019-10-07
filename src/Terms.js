@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Alert } from '@react95/core'
+import { Modal, Button, Alert, Fieldset } from '@react95/core'
 import axios from 'axios';
 import Form from './Form';
 
@@ -24,6 +24,16 @@ class Terms extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeAlert = this.closeAlert.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('/api/terms')
+      .then((response) => {
+        if (response.data) {
+          this.setState({ terms: response.data.terms });
+        }
+      })
+      .catch(() => {});
   }
 
   openModal() {
@@ -70,7 +80,7 @@ class Terms extends Component {
   }
 
   render() {
-    const { creating, success, newTerm, errors } = this.state;
+    const { creating, success, newTerm, errors, terms } = this.state;
     return (
       <>
         <Button onClick={this.openModal}>Submit New Term</Button>
@@ -103,6 +113,19 @@ class Terms extends Component {
           : null
         }
         
+        {terms.length
+          ? (
+            <div style={{ backgroundColor: '#c3c7cb', padding: '1rem', marginTop: '1rem', boxShadow: 'inset 1px 1px 0px 1px #ffffff, inset 0 0 0 1px #868a8e, 1px 1px 0 1px #000' }}>
+              {terms.map((term) => (
+                <Fieldset key={term._id} legend={term.word} style={{ margin: '1.5rem 0' }}>
+                  <div style={{ marginBottom: '1rem' }}>{term.definition}</div>
+                  <em>{term.example}</em>
+                </Fieldset>
+              ))}
+            </div>
+          )
+          : null
+        }
       </>
     );
   }

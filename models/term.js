@@ -21,6 +21,11 @@ var TermSchema = new Schema({
   approved: {
     type: Boolean,
     required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    set: function () { return this.securedField; }
   }
 }, {});
 

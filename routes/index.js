@@ -6,7 +6,7 @@ var Term = mongoose.model('Term');
 /* GET terms page. */
 router.get('/terms', async (req, res, next) => {
   try {
-    var terms = await Term.find({});
+    var terms = await Term.find({ approved: true });
 
     res.json({ terms });
   }
