@@ -7,9 +7,9 @@
     "backend-server": "nodemon ./bin/www",
     "frontend-server": "react-scripts start",
     "devstart": "concurrently --kill-others \"npm run backend-server\" \"npm run frontend-server\"",
-    "build": "react-scripts build ./view",
-    "test": "react-scripts test ./view",
-    "eject": "react-scripts eject ./view"
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@react95/core": "^2.4.4",
