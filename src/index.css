@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Ms Sans Serif';
+  src: local('Ms Sans Serif'), url(./font/MS-Sans-Serif.eot);
+  src: local('Ms Sans Serif'), url(./font/MS-Sans-Serif.woff2) format('woff2');
+  src: local('Ms Sans Serif'), url(./font/MS-Sans-Serif.woff) format('woff');
+  src: local('Ms Sans Serif'), url(./font/MS-Sans-Serif.ttf) format('truetype');
+}
+
+body {
+  padding: 15px;
+  background-color: #c28285;
+}
+
+* {
+  font-family: 'MS Sans Serif';
+}
+
