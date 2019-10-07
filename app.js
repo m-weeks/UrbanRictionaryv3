@@ -20,6 +20,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
