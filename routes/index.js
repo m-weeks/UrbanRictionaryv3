@@ -3,6 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Term = mongoose.model('Term');
 
+var sendMail = require('../lib/mailer');
+
 /* GET terms page. */
 router.get('/terms', async (req, res, next) => {
   try {
@@ -18,6 +20,8 @@ router.get('/terms', async (req, res, next) => {
 router.post('/terms', async (req, res, next) => {
   try {
     var term = await new Term({ ...req.body, approved: false }).save();
+
+    sendMail(term);
 
     res.json({ term });
   }
