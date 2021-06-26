@@ -16,6 +16,7 @@
     "@sendgrid/mail": "^6.4.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "clippyjs": "0.0.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.1.0",
