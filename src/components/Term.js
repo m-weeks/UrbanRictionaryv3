@@ -21,7 +21,7 @@ const Terms = (props) => {
     bonzi.show();
     
     // Request voice
-    axios.get('/api/bonzi', { responseType: 'blob', params: { text: term.definition } })
+    axios.get('/api/bonzi', { responseType: 'blob', params: { text: term.example } })
       .then((response) => {
         const audio = new Audio(window.URL.createObjectURL(response.data));
         audio.preload = 'metadata';
@@ -33,7 +33,7 @@ const Terms = (props) => {
           }, 2000);
         });
         audio.play();
-        bonzi.speak(term.definition);
+        bonzi.speak(term.example);
       })
       .catch(() => {})
       .finally(() => {
