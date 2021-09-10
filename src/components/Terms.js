@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Button, Alert, Fieldset } from '@react95/core'
+import { Button, Alert } from '@react95/core'
 import axios from 'axios';
-import { useClippy } from './Clippy';
+import { useClippy } from './agents/Clippy';
 import FormModal from './FormModal';
+import Term from './Term';
 
 const Terms = (props) => {
   const [creating, setCreating] = useState(false);
@@ -72,7 +73,10 @@ const Terms = (props) => {
 
     const interval = setInterval(() => {
       const term = terms[Math.floor(Math.random() * terms.length)];
-      agent.speak(`${term.word}: ${term.definition}`)
+      // @todo: Do this without using the private variable
+      if (!agent._hidden) {
+        agent.speak(`${term.word}: ${term.definition}`)
+      }
     }, 20000);
 
     return () => {
@@ -112,10 +116,7 @@ const Terms = (props) => {
         ? (
           <div style={{ backgroundColor: '#c3c7cb', padding: '1rem', marginTop: '1rem', boxShadow: 'inset 1px 1px 0px 1px #ffffff, inset 0 0 0 1px #868a8e, 1px 1px 0 1px #000' }}>
             {terms.map((term) => (
-              <Fieldset key={term._id} legend={term.word} style={{ margin: '1.5rem 0' }}>
-                <div style={{ marginBottom: '1rem' }}>{term.definition}</div>
-                <em>{term.example}</em>
-              </Fieldset>
+              <Term term={term} key={term._id} />
             ))}
           </div>
         )

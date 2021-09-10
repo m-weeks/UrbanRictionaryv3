@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Modal, List } from '@react95/core'
 import Form from './Form';
-import { useClippy } from './Clippy';
+import { useClippy } from './agents/Clippy';
 
 const FormModal = (props) => {
   const {

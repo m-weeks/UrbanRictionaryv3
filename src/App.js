@@ -1,12 +1,15 @@
 import React from 'react';
 import Home from './components/Home';
-import { ClippyProvider } from './components/Clippy';
+import { ClippyProvider } from './components/agents/Clippy';
+import { BonziProvider } from './components/agents/Bonzi';
 
 function App() {
   return (
     <>
       <ClippyProvider>
-        <Home />
+        <BonziProvider showOnLoad={false}>
+          <Home />
+        </BonziProvider>
       </ClippyProvider>
     </>
   );
