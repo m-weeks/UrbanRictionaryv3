@@ -18,12 +18,10 @@ const Home = (props) => {
 
         <div className={style.wrapper} style={{ marginLeft: 'auto' }}>
           <div className={style.spinner}>
-            <div>
-              <div className={style.face1}>{img}</div>
-              <div className={style.face2}>{img}</div>
-              <div className={style.face3}>{img}</div>
-              <div className={style.face4}>{img}</div>
-            </div>
+            <div className={style.face1}>{img}</div>
+            <div className={style.face2}>{img}</div>
+            <div className={style.face3}>{img}</div>
+            <div className={style.face4}>{img}</div>
           </div>
         </div>
       </div>
